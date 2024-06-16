@@ -34,7 +34,7 @@ namespace silliness.Mods
         public static void incrementing()
         {
             themeNumber++;
-            if (themeNumber > 12)
+            if (themeNumber > 16)
             {
                 themeNumber = 1;
             }

@@ -125,6 +125,13 @@ namespace silliness.Menu
                 HasLoaded = true;
                 OnLaunch();
             }
+            try
+            {
+                GameObject.Find("motdtext").GetComponent<Text>().text = "HEY THANKS FOR USING <color=magenta>" + PluginInfo.Name + " V:" + PluginInfo.Version + "</color> THE SILLIEST MENU IN THE WORLD!\n\nTHIS MENU IS NOT FOR OP SHIT, WE ONLY FOCUS ON THE SILLY SIDE OF THINGS";
+                GameObject.Find("COC Text").GetComponent<Text>().text = "PLEASE KEEP IN MIND THIS IS AN ILLEGAL MOD MENU, BEING SILLY COMES AT A PRICE PEOPLE. I AM NOT RESPONSIBLE FOR ANY BANS YOU GET, WE HAVE ANTI REPORT FOR A REASON (ANTI REPORT IN SAFETY MODS)";//COC writing
+                GameObject.Find("CodeOfConduct").GetComponent<Text>().text = "SILLINESS";//COC Title
+            }
+            catch { }
         }
 
         public static int themeNumber = 1;
@@ -258,42 +265,6 @@ namespace silliness.Menu
             }
             if (themeNumber == 8)
             {
-                GetIndex("change theme [pink]").overlapText = "change theme [gay]";
-
-                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
-                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonColors = new ExtGradient[]
-                {
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
-                };
-                textColors = new Color[]
-                {
-                    Color.black, // Disabled
-                    Color.black // Enabled
-                };
-            }
-            if (themeNumber == 9)
-            {
-                GetIndex("change theme [pink]").overlapText = "change theme [pan]";
-
-                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
-                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonColors = new ExtGradient[]
-                {
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
-                };
-                textColors = new Color[]
-                {
-                    Color.black, // Disabled
-                    Color.black // Enabled
-                };
-            }
-            if (themeNumber == 10)
-            {
                 GetIndex("change theme [pink]").overlapText = "change theme [femboy 1]";
 
                 backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
@@ -310,7 +281,7 @@ namespace silliness.Menu
                     new Color(0.851f, 0.851f, 0.851f) // Enabled
                 };
             }
-            if (themeNumber == 11)
+            if (themeNumber == 9)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [femboy 2]";
 
@@ -328,7 +299,7 @@ namespace silliness.Menu
                     new Color(0.851f, 0.851f, 0.851f) // Enabled
                 };
             }
-            if (themeNumber == 12)
+            if (themeNumber == 10)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [femboy 3]";
 
@@ -346,9 +317,117 @@ namespace silliness.Menu
                     new Color(0.851f, 0.851f, 0.851f) // Enabled
                 };
             }
+            if (themeNumber == 11)
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [gay]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.black, // Disabled
+                    Color.gray // Enabled
+                };
+            }
+            if (themeNumber == 12)
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [pan]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.black, // Disabled
+                    Color.gray // Enabled
+                };
+            }
+            if (themeNumber == 13)
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [trans]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.black, // Disabled
+                    Color.gray // Enabled
+                };
+            }
+            if (themeNumber == 14)
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [bisexual]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.black, // Disabled
+                    Color.gray // Enabled
+                };
+            }
+            if (themeNumber == 15)
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [lesbian]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.black, // Disabled
+                    Color.gray // Enabled
+                };
+            }
+            if (themeNumber == 16)// racism
+            {
+                GetIndex("change theme [pink]").overlapText = "change theme [midnight blue]";
+
+                backgroundColor = new ExtGradient { colors = GetSolidGradient(new Color(0.09f, 0.09f, 0.43f)) };
+                mainBorderColors = new ExtGradient { colors = GetSolidGradient(new Color(0.094f, 0.094f, 0.612f)) };
+                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(new Color(0.094f, 0.094f, 0.612f)) };
+                buttonColors = new ExtGradient[]
+                {
+                    new ExtGradient{colors = GetSolidGradient(new Color(0.09f, 0.09f, 0.43f)) }, // Disabled
+                    new ExtGradient{colors = GetSolidGradient(new Color(0.031f, 0.031f, 0.239f)) }, // Enabled
+                };
+                textColors = new Color[]
+                {
+                    Color.white, // Disabled
+                    Color.white // Enabled
+                };
+            }
         }
 
-        // Functions
+        // Functions 0.09f, 0.09f, 0.43f
         public static void CreateMenu()
         {
 
@@ -372,31 +451,49 @@ namespace silliness.Menu
             ColorChanger colorChanger = menuBackground.AddComponent<ColorChanger>();
             colorChanger.colorInfo = backgroundColor;
             colorChanger.Start();
+            if (themeNumber == 11)
+            {
+                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                menuBackground.GetComponent<Renderer>().material.color = Color.white;
+                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagmiddle.png", "gayflagmiddle.png");
+            }
+            if (themeNumber == 12)
+            {
+                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                menuBackground.GetComponent<Renderer>().material.color = Color.white;
+                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagmiddle.png", "panflagmiddle.png");
+            }
+            if (themeNumber == 13)
+            {
+                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                menuBackground.GetComponent<Renderer>().material.color = Color.white;
+                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagmiddle.png", "transflagmiddle.png");
+            }
+            if (themeNumber == 14)
+            {
+                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                menuBackground.GetComponent<Renderer>().material.color = Color.white;
+                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagmiddle.png", "bisexualflagmiddle.png");
+            }
+            if (themeNumber == 15)
+            {
+                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                menuBackground.GetComponent<Renderer>().material.color = Color.white;
+                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/lesbianflagmiddle.png", "lesbianflagmiddle.png");
+            }
             if (themeNumber == 8)
-            {
-                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
-                menuBackground.GetComponent<Renderer>().material.color = Color.white;
-                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflag.png", "gayflag.png");
-            }
-            if (themeNumber == 9)
-            {
-                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
-                menuBackground.GetComponent<Renderer>().material.color = Color.white;
-                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflag.png", "panflag.png");
-            }
-            if (themeNumber == 10)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/femboyImage1.jpg", "femboyImage1.jpg");
             }
-            if (themeNumber == 11)
+            if (themeNumber == 9)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/femboyImage2.png", "femboyImage2.png");
             }
-            if (themeNumber == 12)
+            if (themeNumber == 10)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
@@ -454,6 +551,14 @@ namespace silliness.Menu
             component.sizeDelta = new Vector2(0.28f, 0.02f);
             component.position = new Vector3(0.06f, -0.0025f, 0.1875f);
             component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 text.fontStyle = FontStyle.Bold;
@@ -463,6 +568,14 @@ namespace silliness.Menu
                 text.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 text.fontStyle = FontStyle.Bold;
             }
@@ -488,6 +601,14 @@ namespace silliness.Menu
             rectt.sizeDelta = new Vector2(0.28f, 0.05f);
             rectt.localPosition = new Vector3(0.06f, 0f, 0.1645f);
             rectt.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                discontext2.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                discontext2.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 discontext2.fontStyle = FontStyle.Bold;
@@ -497,6 +618,14 @@ namespace silliness.Menu
                 discontext2.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                discontext2.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                discontext2.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 discontext2.fontStyle = FontStyle.Bold;
             }
@@ -524,6 +653,14 @@ namespace silliness.Menu
                 component2.sizeDelta = new Vector2(0.28f, 0.01f);
                 component2.position = new Vector3(0.06f, 0f, -0.203f);
                 component2.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+                if (themeNumber == 8)
+                {
+                    fpsObject.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 9)
+                {
+                    fpsObject.fontStyle = FontStyle.Bold;
+                }
                 if (themeNumber == 10)
                 {
                     fpsObject.fontStyle = FontStyle.Bold;
@@ -533,6 +670,14 @@ namespace silliness.Menu
                     fpsObject.fontStyle = FontStyle.Bold;
                 }
                 if (themeNumber == 12)
+                {
+                    fpsObject.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 13)
+                {
+                    fpsObject.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 14)
                 {
                     fpsObject.fontStyle = FontStyle.Bold;
                 }
@@ -557,6 +702,14 @@ namespace silliness.Menu
             rectttt.sizeDelta = new Vector2(0.28f, 0.023f);
             rectttt.localPosition = new Vector3(0.06f, 0f, -0.19f);
             rectttt.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                discontext3.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                discontext3.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 discontext3.fontStyle = FontStyle.Bold;
@@ -566,6 +719,14 @@ namespace silliness.Menu
                 discontext3.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                discontext3.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                discontext3.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 discontext3.fontStyle = FontStyle.Bold;
             }
@@ -590,6 +751,14 @@ namespace silliness.Menu
             recttttt.sizeDelta = new Vector2(0.28f, 0.015f);
             recttttt.localPosition = new Vector3(0.06f, 0f, 0.1325f);
             recttttt.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                discontext4.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                discontext4.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 discontext4.fontStyle = FontStyle.Bold;
@@ -599,6 +768,14 @@ namespace silliness.Menu
                 discontext4.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                discontext4.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                discontext4.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 discontext4.fontStyle = FontStyle.Bold;
             }
@@ -625,6 +802,14 @@ namespace silliness.Menu
                 recttt.sizeDelta = new Vector2(0.2f, 0.06f);
                 recttt.localPosition = new Vector3(0.064f, 0f, 0.24f);
                 recttt.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+                if (themeNumber == 8)
+                {
+                    discontext.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 9)
+                {
+                    discontext.fontStyle = FontStyle.Bold;
+                }
                 if (themeNumber == 10)
                 {
                     discontext.fontStyle = FontStyle.Bold;
@@ -634,6 +819,14 @@ namespace silliness.Menu
                     discontext.fontStyle = FontStyle.Bold;
                 }
                 if (themeNumber == 12)
+                {
+                    discontext.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 13)
+                {
+                    discontext.fontStyle = FontStyle.Bold;
+                }
+                if (themeNumber == 14)
                 {
                     discontext.fontStyle = FontStyle.Bold;
                 }
@@ -658,6 +851,14 @@ namespace silliness.Menu
             component.sizeDelta = new Vector2(0.2f, 0.03f);
             component.localPosition = new Vector3(0.064f, 0.195f, 0f);
             component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 text.fontStyle = FontStyle.Bold;
@@ -667,6 +868,14 @@ namespace silliness.Menu
                 text.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 text.fontStyle = FontStyle.Bold;
             }
@@ -690,6 +899,14 @@ namespace silliness.Menu
             component.sizeDelta = new Vector2(0.2f, 0.03f);
             component.localPosition = new Vector3(0.064f, -0.195f, 0f);
             component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 text.fontStyle = FontStyle.Bold;
@@ -699,6 +916,14 @@ namespace silliness.Menu
                 text.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
             {
                 text.fontStyle = FontStyle.Bold;
             }
@@ -724,6 +949,38 @@ namespace silliness.Menu
                 colorChanger = disconnectbutton.AddComponent<ColorChanger>();
                 colorChanger.colorInfo = buttonColors[0];
                 colorChanger.Start();
+
+                if (themeNumber == 11)
+                {
+                    disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                    disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
+                    disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagmiddle.png", "gayflagmiddle.png");
+                }
+                if (themeNumber == 12)
+                {
+                    disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                    disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
+                    disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagmiddle.png", "panflagmiddle.png");
+                }
+                if (themeNumber == 13)
+                {
+                    disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                    disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
+                    disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagmiddle.png", "transflagmiddle.png");
+                }
+                if (themeNumber == 14)
+                {
+                    disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                    disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
+                    disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagmiddle.png", "bisexualflagmiddle.png");
+                }
+                if (themeNumber == 15)
+                {
+                    disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                    disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
+                    disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/lesbianflagmiddle.png", "lesbianflagmiddle.png");
+                }
+
                 if (outlines)
                 {
                     GameObject gameObject2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -763,6 +1020,37 @@ namespace silliness.Menu
             colorChanger.colorInfo = buttonColors[0];
             colorChanger.Start();
 
+            if (themeNumber == 11)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagleft.png", "gayflagleft.png");
+            }
+            if (themeNumber == 12)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagleft.png", "panflagleft.png");
+            }
+            if (themeNumber == 13)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagleft.png", "transflagleft.png");
+            }
+            if (themeNumber == 14)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagleft.png", "bisexualflagleft.png");
+            }
+            if (themeNumber == 15)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/lesbianflagleft.png", "lesbianflagleft.png");
+            }
+
             if (outlines)
             {
                 GameObject gameObject2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -799,6 +1087,37 @@ namespace silliness.Menu
             colorChanger = gameObject.AddComponent<ColorChanger>();
             colorChanger.colorInfo = buttonColors[0];
             colorChanger.Start();
+
+            if (themeNumber == 11)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagright.png", "gayflagright.png");
+            }
+            if (themeNumber == 12)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagright.png", "panflagright.png");
+            }
+            if (themeNumber == 13)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagright.png", "transflagright.png");
+            }
+            if (themeNumber == 14)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagright.png", "bisexualflagright.png");
+            }
+            if (themeNumber == 15)
+            {
+                gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
+                gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/lesbianflagright.png", "lesbianflagright.png");
+            }
 
             if (outlines)
             {
@@ -870,6 +1189,14 @@ namespace silliness.Menu
                 colorChanger = buttonOutline.AddComponent<ColorChanger>();
                 colorChanger.colorInfo = buttonBorderColors;
                 colorChanger.Start();
+                if (themeNumber == 8)
+                {
+                    buttonOutline.GetComponent<Renderer>().enabled = false;
+                }
+                if (themeNumber == 9)
+                {
+                    buttonOutline.GetComponent<Renderer>().enabled = false;
+                }
                 if (themeNumber == 10)
                 {
                     buttonOutline.GetComponent<Renderer>().enabled = false;
@@ -882,6 +1209,26 @@ namespace silliness.Menu
                 {
                     buttonOutline.GetComponent<Renderer>().enabled = false;
                 }
+                if (themeNumber == 13)
+                {
+                    buttonOutline.GetComponent<Renderer>().enabled = false;
+                }
+                if (themeNumber == 14)
+                {
+                    buttonOutline.GetComponent<Renderer>().enabled = false;
+                }
+                if (themeNumber == 15)
+                {
+                    buttonOutline.GetComponent<Renderer>().enabled = false;
+                }
+            }
+            if (themeNumber == 8)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+            }
+            if (themeNumber == 9)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
             }
             if (themeNumber == 10)
             {
@@ -892,6 +1239,18 @@ namespace silliness.Menu
                 gameObject.GetComponent<Renderer>().enabled = false;
             }
             if (themeNumber == 12)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+            }
+            if (themeNumber == 13)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+            }
+            if (themeNumber == 14)
+            {
+                gameObject.GetComponent<Renderer>().enabled = false;
+            }
+            if (themeNumber == 15)
             {
                 gameObject.GetComponent<Renderer>().enabled = false;
             }
@@ -928,6 +1287,14 @@ namespace silliness.Menu
             component.sizeDelta = new Vector2(.2f, .02f);
             component.localPosition = new Vector3(.064f, 0, .111f - offset / 2.6f);
             component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
+            if (themeNumber == 8)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 9)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
             if (themeNumber == 10)
             {
                 text.fontStyle = FontStyle.Bold;
@@ -937,6 +1304,18 @@ namespace silliness.Menu
                 text.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 13)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 14)
+            {
+                text.fontStyle = FontStyle.Bold;
+            }
+            if (themeNumber == 15)
             {
                 text.fontStyle = FontStyle.Bold;
             }
@@ -1211,5 +1590,7 @@ namespace silliness.Menu
         public static Vector3 blahhhhhhh;
         public static AssetBundle assetBundle = null;
         static public GorillaScoreBoard[] allleaderboards;
+        public static GameObject motd = null;
+        public static GameObject motdText = null;
     }
 }

@@ -94,5 +94,13 @@ namespace silliness.Mods
             }
             catch { }
         }
+        public static void DisableNetworkTriggers()
+        {
+            GameObject.Find("Environment Objects/TriggerZones_Prefab/JoinRoomTriggers_Prefab").SetActive(false);
+        }
+        public static void EnableNetworkTriggers()
+        {
+            GameObject.Find("Environment Objects/TriggerZones_Prefab/JoinRoomTriggers_Prefab").SetActive(true);
+        }
     }   
 }

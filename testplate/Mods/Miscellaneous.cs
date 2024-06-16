@@ -191,5 +191,33 @@ namespace silliness.Mods
             }
             lastthing2 = thing2;
         }
+        public static void FixHandTaps()
+        {
+            GorillaTagger.Instance.handTapVolume = 0.1f;
+        }
+
+        public static void LoudHandTaps()
+        {
+            GorillaTagger.Instance.handTapVolume = int.MaxValue;
+        }
+
+        public static void SilentHandTaps()
+        {
+            GorillaTagger.Instance.handTapVolume = 0;
+        }
+
+        public static void EnableInstantHandTaps()
+        {
+            GorillaTagger.Instance.tapCoolDown = 0f;
+        }
+
+        public static void DisableInstantHandTaps()
+        {
+            GorillaTagger.Instance.tapCoolDown = 0.33f;
+        }
+        public static void BringMonsters()
+        {
+
+        }
     }
 }

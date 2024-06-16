@@ -112,6 +112,9 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "materialize present", method =() => Miscellaneous.materializepresentballoon(), toolTip = "spawns a present in your right hand using grip"},
                 new ButtonInfo { buttonText = "materialize mentos", method =() => Miscellaneous.materializementosballoon(), toolTip = "spawns mentos in your right hand using grip"},
                 new ButtonInfo { buttonText = "materialize fish food", method =() => Miscellaneous.materializegishfoodballoon(), toolTip = "spawns fish food in your right hand using grip"},
+                new ButtonInfo { buttonText = "silent hand taps", enableMethod =() => Miscellaneous.SilentHandTaps(), disableMethod =() => Miscellaneous.FixHandTaps(), toolTip = "makes your handtaps silent"},
+                new ButtonInfo { buttonText = "loud hand taps", enableMethod =() => Miscellaneous.LoudHandTaps(), disableMethod =() => Miscellaneous.FixHandTaps(), toolTip = "makes your handtaps loud"},
+                new ButtonInfo { buttonText = "instant hand taps", enableMethod =() => Miscellaneous.EnableInstantHandTaps(), disableMethod =() => Miscellaneous.DisableInstantHandTaps(), toolTip = "makes your handtaps go quick"},
             },
 
 
@@ -131,6 +134,7 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "spaz rig", method =() => Rig.SpazRig(), toolTip = "makes your rig freak out"},
                 new ButtonInfo { buttonText = "spaz hands", method =() => Rig.SpazHands(), toolTip = "makes your hands freak out"},
                 new ButtonInfo { buttonText = "invisible monke", method =() => Rig.InvisibleMonke(), toolTip = "makes you invisible to other players"},
+                new ButtonInfo { buttonText = "ghost monke", method =() => Rig.GhostMonke(), toolTip = "makes you invisible to other players"},
             },
 
 
@@ -144,6 +148,7 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "return to main", method =() => Global.ReturnHome(), isTogglable = false, toolTip = "go back to the main page of the menu"},
                 new ButtonInfo { buttonText = "anti report disconnect", method =() => Safety.AntiReportDisconnect(), toolTip = "disconnects you when someone tries reporting you"},
                 new ButtonInfo { buttonText = "anti report reconnect", method =() => Safety.AntiReportReconnect(), toolTip = "reconnects you when someone tries reporting you"},
+                new ButtonInfo { buttonText = "disable network triggers", enableMethod =() => Safety.EnableNetworkTriggers(), disableMethod =() => Safety.DisableNetworkTriggers(), toolTip = "makes it so you dont join a new room when you go to a different area"},
             },
 
             new ButtonInfo[]

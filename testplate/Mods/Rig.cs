@@ -174,5 +174,16 @@ namespace silliness.Mods
                 GorillaTagger.Instance.offlineVRRig.headBodyOffset = new Vector3(0f, 0f, 0f);
             }
         }
+        public static void GhostMonke()
+        {
+            if (ControllerInputPoller.instance.rightGrab)
+            {
+                GorillaTagger.Instance.offlineVRRig.enabled = false;
+            }
+            else
+            {
+                GorillaTagger.Instance.offlineVRRig.enabled = true;
+            }
+        }
     }
 }
