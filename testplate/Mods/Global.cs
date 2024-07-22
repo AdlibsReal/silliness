@@ -31,10 +31,15 @@ namespace silliness.Mods
             pageName = "safety ";
             buttonsType = 8;
         }
+        public static void VisualMods()
+        {
+            pageName = "visual ";
+            buttonsType = 9;
+        }
         public static void incrementing()
         {
             themeNumber++;
-            if (themeNumber > 16)
+            if (themeNumber > 13)
             {
                 themeNumber = 1;
             }
@@ -62,6 +67,20 @@ namespace silliness.Mods
         public static void Discord()
         {
             Application.OpenURL("https://discord.gg/5ySdQqDWFV");
+        }
+        public static void ZeroGravityMenu()
+        {
+            menu.GetComponent<Rigidbody>().velocity -= Vector3.down * 9.81f * Time.deltaTime;
+        }
+        public static void FixRigColors()
+        {
+            foreach (VRRig vrrig in GorillaParent.instance.vrrigs)
+            {
+                if (vrrig.mainSkin.material.name.Contains("gorilla_body"))
+                {
+                    vrrig.mainSkin.material.color = vrrig.playerColor;
+                }
+            }
         }
     }
 }

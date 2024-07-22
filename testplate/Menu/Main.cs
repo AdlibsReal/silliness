@@ -91,7 +91,7 @@ namespace silliness.Menu
                 // Pre-Execution
                 if (fpsObject != null)
                 {
-                    fpsObject.text = "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
+                    fpsObject.text = "VER: " + PluginInfo.Version + " - " + "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
                 }
 
                 // Execute Enabled mods
@@ -124,12 +124,21 @@ namespace silliness.Menu
             {
                 HasLoaded = true;
                 OnLaunch();
+                Blahaj();
             }
             try
             {
-                GameObject.Find("motdtext").GetComponent<Text>().text = "HEY THANKS FOR USING <color=magenta>" + PluginInfo.Name + " V:" + PluginInfo.Version + "</color> THE SILLIEST MENU IN THE WORLD!\n\nTHIS MENU IS NOT FOR OP SHIT, WE ONLY FOCUS ON THE SILLY SIDE OF THINGS";
+                GameObject.Find("motdtext").GetComponent<Text>().text = "HEY THANKS FOR USING <color=magenta>" + PluginInfo.Name + " V:" + PluginInfo.Version + "</color> THE SILLIEST MENU IN THE WORLD!\n\nTHIS MENU IS NOT FOR OP SHIT, WE ONLY FOCUS ON THE SILLY SIDE OF THINGS, THIS MENU CURRENTLY HAS:" + fullModAmount + "MODS";
                 GameObject.Find("COC Text").GetComponent<Text>().text = "PLEASE KEEP IN MIND THIS IS AN ILLEGAL MOD MENU, BEING SILLY COMES AT A PRICE PEOPLE. I AM NOT RESPONSIBLE FOR ANY BANS YOU GET, WE HAVE ANTI REPORT FOR A REASON (ANTI REPORT IN SAFETY MODS)";//COC writing
                 GameObject.Find("CodeOfConduct").GetComponent<Text>().text = "SILLINESS";//COC Title
+                if (fullModAmount < 0)
+                {
+                    fullModAmount = 0;
+                    foreach (ButtonInfo[] buttons in Buttons.buttons)
+                    {
+                        fullModAmount += buttons.Length;
+                    }
+                }
             }
             catch { }
         }
@@ -265,60 +274,6 @@ namespace silliness.Menu
             }
             if (themeNumber == 8)
             {
-                GetIndex("change theme [pink]").overlapText = "change theme [femboy 1]";
-
-                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
-                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonColors = new ExtGradient[]
-                {
-                    new ExtGradient{colors = GetSolidGradient(new Color(0.996f, 0.62f, 0.624f)) }, // Disabled
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
-                };
-                textColors = new Color[]
-                {
-                    Color.black, // Disabled
-                    new Color(0.851f, 0.851f, 0.851f) // Enabled
-                };
-            }
-            if (themeNumber == 9)
-            {
-                GetIndex("change theme [pink]").overlapText = "change theme [femboy 2]";
-
-                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
-                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonColors = new ExtGradient[]
-                {
-                    new ExtGradient{colors = GetSolidGradient(new Color(0.353f, 0.353f, 0.353f)) }, // Disabled
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
-                };
-                textColors = new Color[]
-                {
-                    Color.black, // Disabled
-                    new Color(0.851f, 0.851f, 0.851f) // Enabled
-                };
-            }
-            if (themeNumber == 10)
-            {
-                GetIndex("change theme [pink]").overlapText = "change theme [femboy 3]";
-
-                backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
-                mainBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonBorderColors = new ExtGradient { colors = GetSolidGradient(Color.black) };
-                buttonColors = new ExtGradient[]
-                {
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Disabled
-                    new ExtGradient{colors = GetSolidGradient(Color.white) }, // Enabled
-                };
-                textColors = new Color[]
-                {
-                    Color.black, // Disabled
-                    new Color(0.851f, 0.851f, 0.851f) // Enabled
-                };
-            }
-            if (themeNumber == 11)
-            {
                 GetIndex("change theme [pink]").overlapText = "change theme [gay]";
 
                 backgroundColor = new ExtGradient { colors = GetSolidGradient(Color.white) };
@@ -335,7 +290,7 @@ namespace silliness.Menu
                     Color.gray // Enabled
                 };
             }
-            if (themeNumber == 12)
+            if (themeNumber == 9)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [pan]";
 
@@ -353,7 +308,7 @@ namespace silliness.Menu
                     Color.gray // Enabled
                 };
             }
-            if (themeNumber == 13)
+            if (themeNumber == 10)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [trans]";
 
@@ -371,7 +326,7 @@ namespace silliness.Menu
                     Color.gray // Enabled
                 };
             }
-            if (themeNumber == 14)
+            if (themeNumber == 11)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [bisexual]";
 
@@ -389,7 +344,7 @@ namespace silliness.Menu
                     Color.gray // Enabled
                 };
             }
-            if (themeNumber == 15)
+            if (themeNumber == 12)
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [lesbian]";
 
@@ -407,7 +362,7 @@ namespace silliness.Menu
                     Color.gray // Enabled
                 };
             }
-            if (themeNumber == 16)// racism
+            if (themeNumber == 13)// racism
             {
                 GetIndex("change theme [pink]").overlapText = "change theme [midnight blue]";
 
@@ -451,53 +406,35 @@ namespace silliness.Menu
             ColorChanger colorChanger = menuBackground.AddComponent<ColorChanger>();
             colorChanger.colorInfo = backgroundColor;
             colorChanger.Start();
-            if (themeNumber == 11)
+            if (themeNumber == 8)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagmiddle.png", "gayflagmiddle.png");
             }
-            if (themeNumber == 12)
+            if (themeNumber == 9)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagmiddle.png", "panflagmiddle.png");
             }
-            if (themeNumber == 13)
+            if (themeNumber == 10)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagmiddle.png", "transflagmiddle.png");
             }
-            if (themeNumber == 14)
+            if (themeNumber == 11)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagmiddle.png", "bisexualflagmiddle.png");
             }
-            if (themeNumber == 15)
+            if (themeNumber == 12)
             {
                 menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 menuBackground.GetComponent<Renderer>().material.color = Color.white;
                 menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/lesbianflagmiddle.png", "lesbianflagmiddle.png");
-            }
-            if (themeNumber == 8)
-            {
-                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
-                menuBackground.GetComponent<Renderer>().material.color = Color.white;
-                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/femboyImage1.jpg", "femboyImage1.jpg");
-            }
-            if (themeNumber == 9)
-            {
-                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
-                menuBackground.GetComponent<Renderer>().material.color = Color.white;
-                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/femboyImage2.png", "femboyImage2.png");
-            }
-            if (themeNumber == 10)
-            {
-                menuBackground.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
-                menuBackground.GetComponent<Renderer>().material.color = Color.white;
-                menuBackground.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/femboyImage3.png", "femboyImage3.png");
             }
 
             if (outlines)
@@ -571,14 +508,6 @@ namespace silliness.Menu
             {
                 text.fontStyle = FontStyle.Bold;
             }
-            if (themeNumber == 13)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
 
             Text discontext2 = new GameObject
             {
@@ -621,14 +550,6 @@ namespace silliness.Menu
             {
                 discontext2.fontStyle = FontStyle.Bold;
             }
-            if (themeNumber == 13)
-            {
-                discontext2.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                discontext2.fontStyle = FontStyle.Bold;
-            }
 
             if (fpsCounter)
             {
@@ -640,7 +561,7 @@ namespace silliness.Menu
                     }
                 }.AddComponent<Text>();
                 fpsObject.font = currentFont;
-                fpsObject.text = "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
+                fpsObject.text = "VER: " + PluginInfo.Version + "-" + "FPS: " + Mathf.Ceil(1f / Time.unscaledDeltaTime).ToString();
                 fpsObject.color = textColors[0];
                 fpsObject.fontSize = 1;
                 fpsObject.supportRichText = true;
@@ -650,8 +571,8 @@ namespace silliness.Menu
                 fpsObject.resizeTextMinSize = 0;
                 RectTransform component2 = fpsObject.GetComponent<RectTransform>();
                 component2.localPosition = Vector3.zero;
-                component2.sizeDelta = new Vector2(0.28f, 0.01f);
-                component2.position = new Vector3(0.06f, 0f, -0.203f);
+                component2.sizeDelta = new Vector2(0.28f, 0.015f);
+                component2.position = new Vector3(0.06f, 0f, 0.1325f);
                 component2.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
                 if (themeNumber == 8)
                 {
@@ -670,14 +591,6 @@ namespace silliness.Menu
                     fpsObject.fontStyle = FontStyle.Bold;
                 }
                 if (themeNumber == 12)
-                {
-                    fpsObject.fontStyle = FontStyle.Bold;
-                }
-                if (themeNumber == 13)
-                {
-                    fpsObject.fontStyle = FontStyle.Bold;
-                }
-                if (themeNumber == 14)
                 {
                     fpsObject.fontStyle = FontStyle.Bold;
                 }
@@ -722,23 +635,15 @@ namespace silliness.Menu
             {
                 discontext3.fontStyle = FontStyle.Bold;
             }
-            if (themeNumber == 13)
-            {
-                discontext3.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                discontext3.fontStyle = FontStyle.Bold;
-            }
 
-            Text discontext4 = new GameObject
+            /*Text discontext4 = new GameObject
             {
                 transform =
                             {
                                 parent = canvasObject.transform
                             }
             }.AddComponent<Text>();
-            discontext4.text = PluginInfo.Version;
+            discontext4.text = PluginInfo.Version + " ";
             discontext4.font = currentFont;
             discontext4.fontSize = 1;
             discontext4.color = textColors[0];
@@ -770,15 +675,7 @@ namespace silliness.Menu
             if (themeNumber == 12)
             {
                 discontext4.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 13)
-            {
-                discontext4.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                discontext4.fontStyle = FontStyle.Bold;
-            }
+            }*/
 
             if (disconnectButton)
             {
@@ -819,14 +716,6 @@ namespace silliness.Menu
                     discontext.fontStyle = FontStyle.Bold;
                 }
                 if (themeNumber == 12)
-                {
-                    discontext.fontStyle = FontStyle.Bold;
-                }
-                if (themeNumber == 13)
-                {
-                    discontext.fontStyle = FontStyle.Bold;
-                }
-                if (themeNumber == 14)
                 {
                     discontext.fontStyle = FontStyle.Bold;
                 }
@@ -871,14 +760,6 @@ namespace silliness.Menu
             {
                 text.fontStyle = FontStyle.Bold;
             }
-            if (themeNumber == 13)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
 
             text = new GameObject
             {
@@ -919,14 +800,6 @@ namespace silliness.Menu
             {
                 text.fontStyle = FontStyle.Bold;
             }
-            if (themeNumber == 13)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
 
             // Buttons
             // Disconnect
@@ -950,31 +823,31 @@ namespace silliness.Menu
                 colorChanger.colorInfo = buttonColors[0];
                 colorChanger.Start();
 
-                if (themeNumber == 11)
+                if (themeNumber == 8)
                 {
                     disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                     disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
                     disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagmiddle.png", "gayflagmiddle.png");
                 }
-                if (themeNumber == 12)
+                if (themeNumber == 9)
                 {
                     disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                     disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
                     disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagmiddle.png", "panflagmiddle.png");
                 }
-                if (themeNumber == 13)
+                if (themeNumber == 10)
                 {
                     disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                     disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
                     disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagmiddle.png", "transflagmiddle.png");
                 }
-                if (themeNumber == 14)
+                if (themeNumber == 11)
                 {
                     disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                     disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
                     disconnectbutton.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagmiddle.png", "bisexualflagmiddle.png");
                 }
-                if (themeNumber == 15)
+                if (themeNumber == 12)
                 {
                     disconnectbutton.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                     disconnectbutton.GetComponent<Renderer>().material.color = Color.white;
@@ -1020,31 +893,31 @@ namespace silliness.Menu
             colorChanger.colorInfo = buttonColors[0];
             colorChanger.Start();
 
-            if (themeNumber == 11)
+            if (themeNumber == 8)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagleft.png", "gayflagleft.png");
             }
-            if (themeNumber == 12)
+            if (themeNumber == 9)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagleft.png", "panflagleft.png");
             }
-            if (themeNumber == 13)
+            if (themeNumber == 10)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagleft.png", "transflagleft.png");
             }
-            if (themeNumber == 14)
+            if (themeNumber == 11)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagleft.png", "bisexualflagleft.png");
             }
-            if (themeNumber == 15)
+            if (themeNumber == 12)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
@@ -1088,31 +961,31 @@ namespace silliness.Menu
             colorChanger.colorInfo = buttonColors[0];
             colorChanger.Start();
 
-            if (themeNumber == 11)
+            if (themeNumber == 8)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/gayflagright.png", "gayflagright.png");
             }
-            if (themeNumber == 12)
+            if (themeNumber == 9)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/panflagright.png", "panflagright.png");
             }
-            if (themeNumber == 13)
+            if (themeNumber == 10)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/transflagright.png", "transflagright.png");
             }
-            if (themeNumber == 14)
+            if (themeNumber == 11)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
                 gameObject.GetComponent<Renderer>().material.mainTexture = LoadTextureFromURL("https://adlibsreal.github.io/bisexualflagright.png", "bisexualflagright.png");
             }
-            if (themeNumber == 15)
+            if (themeNumber == 12)
             {
                 gameObject.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 gameObject.GetComponent<Renderer>().material.color = Color.white;
@@ -1209,18 +1082,6 @@ namespace silliness.Menu
                 {
                     buttonOutline.GetComponent<Renderer>().enabled = false;
                 }
-                if (themeNumber == 13)
-                {
-                    buttonOutline.GetComponent<Renderer>().enabled = false;
-                }
-                if (themeNumber == 14)
-                {
-                    buttonOutline.GetComponent<Renderer>().enabled = false;
-                }
-                if (themeNumber == 15)
-                {
-                    buttonOutline.GetComponent<Renderer>().enabled = false;
-                }
             }
             if (themeNumber == 8)
             {
@@ -1239,18 +1100,6 @@ namespace silliness.Menu
                 gameObject.GetComponent<Renderer>().enabled = false;
             }
             if (themeNumber == 12)
-            {
-                gameObject.GetComponent<Renderer>().enabled = false;
-            }
-            if (themeNumber == 13)
-            {
-                gameObject.GetComponent<Renderer>().enabled = false;
-            }
-            if (themeNumber == 14)
-            {
-                gameObject.GetComponent<Renderer>().enabled = false;
-            }
-            if (themeNumber == 15)
             {
                 gameObject.GetComponent<Renderer>().enabled = false;
             }
@@ -1304,18 +1153,6 @@ namespace silliness.Menu
                 text.fontStyle = FontStyle.Bold;
             }
             if (themeNumber == 12)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 13)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 14)
-            {
-                text.fontStyle = FontStyle.Bold;
-            }
-            if (themeNumber == 15)
             {
                 text.fontStyle = FontStyle.Bold;
             }
@@ -1497,20 +1334,6 @@ namespace silliness.Menu
 
             return null;
         }
-        public static void OnLaunch()
-        {
-            if (File.Exists("silliness/enabledmods.txt"))
-            {
-                try
-                {
-                    LoadPreferences();
-                }
-                catch
-                {
-                    Task.Delay(1000).ContinueWith(t => LoadPreferences());
-                }
-            }
-        }
         public static Texture2D LoadTextureFromURL(string resourcePath, string fileName)
         {
             Texture2D texture = new Texture2D(2, 2);
@@ -1551,6 +1374,102 @@ namespace silliness.Menu
 
             return sound;
         }
+        public static void FixStickyColliders(GameObject platform) // We love Gorilla Tag and their pointless collision fixes
+        {
+            Vector3[] localPositions = new Vector3[]
+            {
+                new Vector3(0, 1f, 0),
+                new Vector3(0, -1f, 0),
+                new Vector3(1f, 0, 0),
+                new Vector3(-1f, 0, 0),
+                new Vector3(0, 0, 1f),
+                new Vector3(0, 0, -1f)
+            };
+            Quaternion[] localRotations = new Quaternion[]
+            {
+                Quaternion.Euler(90, 0, 0),
+                Quaternion.Euler(-90, 0, 0),
+                Quaternion.Euler(0, -90, 0),
+                Quaternion.Euler(0, 90, 0),
+                Quaternion.identity,
+                Quaternion.Euler(0, 180, 0)
+            };
+            for (int i = 0; i < localPositions.Length; i++)
+            {
+                GameObject side = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                float size = 0.025f;
+                side.transform.SetParent(platform.transform);
+                side.transform.position = localPositions[i] * (size / 2);
+                side.transform.rotation = localRotations[i];
+                WorldScale(side, new Vector3(size, size, 0.01f));
+                side.GetComponent<Renderer>().enabled = false;
+            }
+        }
+        public static (Vector3 position, Quaternion rotation, Vector3 up, Vector3 forward, Vector3 right) TrueLeftHand()
+        {
+            Quaternion rot = GorillaTagger.Instance.leftHandTransform.rotation * GorillaLocomotion.Player.Instance.leftHandRotOffset;
+            return (GorillaTagger.Instance.leftHandTransform.position + GorillaTagger.Instance.leftHandTransform.rotation * GorillaLocomotion.Player.Instance.leftHandOffset, rot, rot * Vector3.up, rot * Vector3.forward, rot * Vector3.right);
+        }
+
+        public static (Vector3 position, Quaternion rotation, Vector3 up, Vector3 forward, Vector3 right) TrueRightHand()
+        {
+            Quaternion rot = GorillaTagger.Instance.rightHandTransform.rotation * GorillaLocomotion.Player.Instance.rightHandRotOffset;
+            return (GorillaTagger.Instance.rightHandTransform.position + GorillaTagger.Instance.rightHandTransform.rotation * GorillaLocomotion.Player.Instance.rightHandOffset, rot, rot * Vector3.up, rot * Vector3.forward, rot * Vector3.right);
+        }
+        public static void WorldScale(GameObject obj, Vector3 targetWorldScale)
+        {
+            Vector3 parentScale = obj.transform.parent.lossyScale;
+            obj.transform.localScale = new Vector3(
+                targetWorldScale.x / parentScale.x,
+                targetWorldScale.y / parentScale.y,
+                targetWorldScale.z / parentScale.z
+            );
+        }
+        public static AssetBundle assetBundle;
+        public static GameObject LoadAsset(string assetName)
+        {
+            GameObject gameObject = null;
+
+            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("silliness.Resources.blahaj");
+            if (stream != null)
+            {
+                if (assetBundle == null)
+                {
+                    assetBundle = AssetBundle.LoadFromStream(stream);
+                }
+                gameObject = Instantiate<GameObject>(assetBundle.LoadAsset<GameObject>(assetName));
+            }
+            else
+            {
+                Debug.LogError("Failed to load asset from resource: " + assetName);
+            }
+
+            return gameObject;
+        }
+        public static void OnLaunch()
+        {
+            if (File.Exists("silliness/enabledmods.txt"))
+            {
+                try
+                {
+                    LoadPreferences();
+                }
+                catch
+                {
+                    Task.Delay(1000).ContinueWith(t => LoadPreferences());
+                }
+            }
+        }
+        public static void Blahaj()
+        {
+            GameObject Blahaj = LoadAsset("cuck");
+            Blahaj.transform.localPosition = new Vector3(-64.3f, 11.23f, -82.7f);
+            Blahaj.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
+            Blahaj.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            Blahaj.GetComponent<MeshCollider>().enabled = true;
+            Blahaj.GetComponent<Renderer>().material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            Blahaj.GetComponent<Renderer>().material.color = Color.white;
+        }
         public static void disconnect()
         {
             PhotonNetwork.Disconnect();
@@ -1588,9 +1507,9 @@ namespace silliness.Menu
         public static bool EverythingGrippy = false;
         public static bool HasLoaded = false;
         public static Vector3 blahhhhhhh;
-        public static AssetBundle assetBundle = null;
         static public GorillaScoreBoard[] allleaderboards;
-        public static GameObject motd = null;
-        public static GameObject motdText = null;
+        public static int flyspeedcycle = 1;
+        public static float flySpeed = 15f;
+        public static int fullModAmount = -1;
     }
 }

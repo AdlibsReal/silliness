@@ -57,19 +57,11 @@ namespace silliness.Mods
                 Pointer.GetComponent<Renderer>().material.shader = Shader.Find("GorillaTag/UberShader");
                 Destroy(Pointer, Time.deltaTime);
 
-                ColorChanger colorChanger = Pointer.AddComponent<ColorChanger>();
-                colorChanger.colorInfo = backgroundColor;
-                colorChanger.Start();
-
                 PointerLine.startWidth = 0.025f; PointerLine.endWidth = 0.025f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
                 PointerLine.SetPosition(0, GorillaLocomotion.Player.Instance.rightControllerTransform.position);
                 PointerLine.SetPosition(1, Pointer.transform.localPosition);
                 PointerLine.material.shader = Shader.Find("GUI/Text Shader");
                 Destroy(line, Time.deltaTime);
-
-                colorChanger = PointerLine.AddComponent<ColorChanger>();
-                colorChanger.colorInfo = backgroundColor;
-                colorChanger.Start();
 
                 GorillaTagger.Instance.offlineVRRig.enabled = false;
                 GorillaTagger.Instance.offlineVRRig.transform.position = Pointer.transform.position - new Vector3(-0.1f, -1f, 0f);

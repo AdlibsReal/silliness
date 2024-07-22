@@ -20,6 +20,7 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "miscellaneous mods", method =() => Global.MiscellaneousMods(), isTogglable = false, toolTip = "opens up the miscellaneous mods page"},
                 new ButtonInfo { buttonText = "rig mods", method =() => Global.RigMods(), isTogglable = false, toolTip = "opens up the rig mods page"},
                 new ButtonInfo { buttonText = "safety mods", method =() => Global.SafetyMods(), isTogglable = false, toolTip = "opens up the safety mods page"},
+                new ButtonInfo { buttonText = "visual mods", method =() => Global.VisualMods(), isTogglable = false, toolTip = "opens up the visual mods page"},
             },
 
 
@@ -47,9 +48,11 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "change theme [pink]", method =() => Global.incrementing(), isTogglable = false, toolTip = "switches the theme"},
                 new ButtonInfo { buttonText = "outlines", enableMethod =() => SettingsMods.EnableOutlines(), disableMethod =() => SettingsMods.DisableOutlines(), toolTip = "turns on outlines" },
                 new ButtonInfo { buttonText = "freeze player in menu", method =() => Global.FreezeRigInMenu(), toolTip = "freezes you in the menu"},
+                new ButtonInfo { buttonText = "zero gravity menu", method =() => Global.ZeroGravityMenu(), toolTip = "makes the menu float away when you let go of it"},
+                new ButtonInfo { buttonText = "fix rig colors", method =() => Global.FixRigColors(), toolTip = "fixes rig colors"},
                 new ButtonInfo { buttonText = "right hand", enableMethod =() => SettingsMods.RightHand(), disableMethod =() => SettingsMods.LeftHand(), toolTip = "puts the menu on your right hand"},
                 new ButtonInfo { buttonText = "notifications", enableMethod =() => SettingsMods.EnableNotifications(), disableMethod =() => SettingsMods.DisableNotifications(), enabled = !disableNotifications, toolTip = "toggles the notifications"},
-                new ButtonInfo { buttonText = "FPS counter", enableMethod =() => SettingsMods.EnableFPSCounter(), disableMethod =() => SettingsMods.DisableFPSCounter(), enabled = fpsCounter, toolTip = "toggles the FPS counter"},
+            //  new ButtonInfo { buttonText = "FPS counter", enableMethod =() => SettingsMods.EnableFPSCounter(), disableMethod =() => SettingsMods.DisableFPSCounter(), enabled = fpsCounter, toolTip = "toggles the FPS counter"},
                 new ButtonInfo { buttonText = "disconnect button", enableMethod =() => SettingsMods.EnableDisconnectButton(), disableMethod =() => SettingsMods.DisableDisconnectButton(), enabled = disconnectButton, toolTip = "toggles the disconnect button"},
             },
 
@@ -87,15 +90,19 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "speedboost", method =() => Movement.Speedboost(), toolTip = "makes you go slightly faster, i swear"},
                 new ButtonInfo { buttonText = "platforms", method =() => Movement.Platforms(), toolTip = "spawns a shape of your choice under your hands"},
                 new ButtonInfo { buttonText = "trigger platforms", method =() => Movement.TriggerPlatforms(), toolTip = "makes platforms use trigger instead of grip"},
-                new ButtonInfo { buttonText = "sticky platforms", method =() => Movement.StickyPlatforms(), toolTip = "spawns a shape of your choice under your hands and makes you stick to it"},
-                new ButtonInfo { buttonText = "trigger sticky platforms", method =() => Movement.TriggerStickyPlatforms(), toolTip = "makes platforms use trigger instead of grip and makes you stick to it"},
+                //new ButtonInfo { buttonText = "sticky platforms", method =() => Movement.StickyPlatforms(), toolTip = "spawns a shape of your choice under your hands and makes you stick to it"},
+                //new ButtonInfo { buttonText = "trigger sticky platforms", method =() => Movement.TriggerStickyPlatforms(), toolTip = "makes platforms use trigger instead of grip and makes you stick to it"},
                 new ButtonInfo { buttonText = "zero gravity", method =() => Movement.ZeroGravity(), toolTip = "makes it so you just float away"},
                 new ButtonInfo { buttonText = "slippery hands", enableMethod =() => Movement.EnableSlipperyHands(), disableMethod =() => Movement.DisableSlipperyHands(), toolTip = "man it sure is cold out"},
                 new ButtonInfo { buttonText = "grippy hands", enableMethod =() => Movement.EnableGrippyHands(), disableMethod =() => Movement.DisableGrippyHands(), toolTip = "man it sure is warm out"},
                 new ButtonInfo { buttonText = "strafe", method =() => Movement.Strafe(), toolTip = "csgo in gorilla tag real"},
                 new ButtonInfo { buttonText = "grip strafe", method =() => Movement.GripStrafe(), toolTip = "csgo in gorilla tag real but using grip"},
+                new ButtonInfo { buttonText = "trigger strafe", method =() => Movement.TriggerStrafe(), toolTip = "csgo in gorilla tag real but using trigger"},
                 new ButtonInfo { buttonText = "fly", method =() => Movement.Fly(), toolTip = "hold down grip to fly"},
                 new ButtonInfo { buttonText = "trigger fly", method =() => Movement.TriggerFly(), toolTip = "think the normal but you use trigger"},
+                new ButtonInfo { buttonText = "noclip fly", method =() => Movement.NoclipFly(), toolTip = "hold down grip to fly whilst phasing through stuff"},
+                new ButtonInfo { buttonText = "trigger noclip fly", method =() => Movement.NoclipTriggerFly(), toolTip = "think the normal but you use trigger whilst phasing through stuff"},
+                new ButtonInfo { buttonText = "noclip", enableMethod =() => Movement.Noclip(), disableMethod =() => Movement.DisableNoclip(), toolTip = "allows you to go through stuff"},
             },
 
 
@@ -149,6 +156,17 @@ namespace silliness.Menu
                 new ButtonInfo { buttonText = "anti report disconnect", method =() => Safety.AntiReportDisconnect(), toolTip = "disconnects you when someone tries reporting you"},
                 new ButtonInfo { buttonText = "anti report reconnect", method =() => Safety.AntiReportReconnect(), toolTip = "reconnects you when someone tries reporting you"},
                 new ButtonInfo { buttonText = "disable network triggers", enableMethod =() => Safety.EnableNetworkTriggers(), disableMethod =() => Safety.DisableNetworkTriggers(), toolTip = "makes it so you dont join a new room when you go to a different area"},
+            },
+
+
+            new ButtonInfo[] {
+                new ButtonInfo { buttonText = "return to main", method =() => Global.ReturnHome(), isTogglable = false, toolTip = "go back to the main page of the menu"},
+                new ButtonInfo { buttonText = "full bright", method =() => Visual.EnableFullBright(), toolTip = "disables the lighting"},
+                new ButtonInfo { buttonText = "set time to night", method =() => Visual.SetNight(), toolTip = "sets the time to night"},
+                new ButtonInfo { buttonText = "set time to afternoon", method =() => Visual.SetAfternoon(), toolTip = "sets the time to afternoon"},
+                new ButtonInfo { buttonText = "set time to day", method =() => Visual.SetDay(), toolTip = "sets the time to day"},
+                new ButtonInfo { buttonText = "casual mode chams", enableMethod =() => Visual.CasualModeChams(), disableMethod =() => Visual.DisableChams(), toolTip = "allows you to see monkes from anywhere by making them appear through walls"},
+                new ButtonInfo { buttonText = "casual mode tracers", method =() => Visual.CasualModeTracers(), toolTip = "makes lines from your hands go to monkes in your lobby"},
             },
 
             new ButtonInfo[]

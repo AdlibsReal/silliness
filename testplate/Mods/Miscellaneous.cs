@@ -37,8 +37,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -49,8 +49,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -64,8 +64,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -76,8 +76,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -91,8 +91,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -103,8 +103,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -118,8 +118,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -130,8 +130,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -145,8 +145,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -157,8 +157,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -172,8 +172,8 @@ namespace silliness.Mods
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
                 lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                lhelp.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                lhelp.transform.position = TrueRightHand().position;
+                lhelp.transform.rotation = TrueRightHand().rotation;
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
                 lhelp.GetComponent<Renderer>().enabled = false;
             }
@@ -184,8 +184,8 @@ namespace silliness.Mods
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
                 rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                rhelp.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                rhelp.transform.position = TrueLeftHand().position;
+                rhelp.transform.rotation = TrueLeftHand().rotation;
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
                 rhelp.GetComponent<Renderer>().enabled = false;
             }

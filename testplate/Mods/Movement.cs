@@ -41,26 +41,26 @@ namespace silliness.Mods
             }
             if (UnityInput.Current.GetKey(KeyCode.W))
             {
-                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.right * Time.deltaTime * -5f;
+                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.forward * Time.deltaTime * 5f;
             }
             if (UnityInput.Current.GetKey(KeyCode.A))
             {
-                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.forward * Time.deltaTime * -5f;
+                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.right * Time.deltaTime * -5f;
             }
             if (UnityInput.Current.GetKey(KeyCode.S))
             {
-                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.right * Time.deltaTime * 5f;
+                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.forward * Time.deltaTime * -5f;
             }
             if (UnityInput.Current.GetKey(KeyCode.D))
             {
-                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.forward * Time.deltaTime * 5f;
+                GorillaTagger.Instance.rigidbody.transform.position += GorillaTagger.Instance.rigidbody.transform.right * Time.deltaTime * 5f;
             }
         }
         public static GameObject LeftPlatform;
         public static GameObject RightPlatform;
         public static GameObject LeftPlatformBorder;
         public static GameObject RightPlatformBorder;
-        public static void StickyPlatforms()
+        /*public static void StickyPlatforms()
         {
             if (leftGrab)
             {
@@ -68,8 +68,9 @@ namespace silliness.Mods
                 {
                     LeftPlatform = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     LeftPlatform.transform.localScale = new Vector3(0.025f, 0.3f, 0.4f);
-                    LeftPlatform.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                    LeftPlatform.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                    LeftPlatform.transform.position = TrueLeftHand().position;
+                    LeftPlatform.transform.rotation = TrueLeftHand().rotation;
+                    FixStickyColliders(LeftPlatform);
 
                     ColorChanger colorChanger = LeftPlatform.AddComponent<ColorChanger>();
                     colorChanger.colorInfo = backgroundColor;
@@ -77,8 +78,8 @@ namespace silliness.Mods
 
                     LeftPlatformBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     LeftPlatformBorder.transform.localScale = new Vector3(0.024f, 0.315f, 0.415f);
-                    LeftPlatformBorder.transform.position = GorillaTagger.Instance.leftHandTransform.position;
-                    LeftPlatformBorder.transform.rotation = GorillaTagger.Instance.leftHandTransform.rotation;
+                    LeftPlatformBorder.transform.position = TrueLeftHand().position;
+                    LeftPlatformBorder.transform.rotation = TrueLeftHand().rotation;
 
                     colorChanger = LeftPlatformBorder.AddComponent<ColorChanger>();
                     colorChanger.colorInfo = mainBorderColors;
@@ -89,7 +90,6 @@ namespace silliness.Mods
             {
                 if (LeftPlatform != null)
                 {
-
                     Destroy(LeftPlatform);
                     Destroy(LeftPlatformBorder);
                 }
@@ -100,8 +100,9 @@ namespace silliness.Mods
                 {
                     RightPlatform = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     RightPlatform.transform.localScale = new Vector3(0.025f, 0.3f, 0.4f);
-                    RightPlatform.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                    RightPlatform.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                    RightPlatform.transform.position = TrueRightHand().position;
+                    RightPlatform.transform.rotation = TrueRightHand().rotation;
+                    FixStickyColliders(RightPlatform);
 
                     ColorChanger colorChanger = RightPlatform.AddComponent<ColorChanger>();
                     colorChanger.colorInfo = backgroundColor;
@@ -109,8 +110,8 @@ namespace silliness.Mods
 
                     RightPlatformBorder = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     RightPlatformBorder.transform.localScale = new Vector3(0.024f, 0.315f, 0.415f);
-                    RightPlatformBorder.transform.position = GorillaTagger.Instance.rightHandTransform.position;
-                    RightPlatformBorder.transform.rotation = GorillaTagger.Instance.rightHandTransform.rotation;
+                    RightPlatformBorder.transform.position = TrueRightHand().position;
+                    RightPlatformBorder.transform.rotation = TrueRightHand().rotation;
 
                     colorChanger = RightPlatformBorder.AddComponent<ColorChanger>();
                     colorChanger.colorInfo = mainBorderColors;
@@ -135,7 +136,7 @@ namespace silliness.Mods
             StickyPlatforms();
             leftGrab = leftTriggerBool;
             rightGrab = rightTriggerBool;
-        }
+        }*/
         public static void Platforms()
         {
             if (leftGrab)
@@ -250,11 +251,19 @@ namespace silliness.Mods
                 GorillaTagger.Instance.bodyCollider.attachedRigidbody.velocity = new Vector3(stupiddumbidiot.x, GorillaTagger.Instance.bodyCollider.attachedRigidbody.velocity.y, stupiddumbidiot.z);
             }
         }
+        public static void TriggerStrafe()
+        {
+            if (rightTrigger > 0.5f)
+            {
+                Vector3 stupiddumbidiot = GorillaTagger.Instance.bodyCollider.transform.forward * GorillaLocomotion.Player.Instance.maxJumpSpeed;
+                GorillaTagger.Instance.bodyCollider.attachedRigidbody.velocity = new Vector3(stupiddumbidiot.x, GorillaTagger.Instance.bodyCollider.attachedRigidbody.velocity.y, stupiddumbidiot.z);
+            }
+        }
         public static void Fly()
         {
             if (rightGrab)
             {
-                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * 15f;
+                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * flySpeed;
                 GorillaLocomotion.Player.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
@@ -262,8 +271,86 @@ namespace silliness.Mods
         {
             if (rightTrigger > 0.5f)
             {
-                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * 15f;
+                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * flySpeed;
                 GorillaLocomotion.Player.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+        }
+        public static void NoclipFly()
+        {
+            if (rightGrab)
+            {
+                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * flySpeed;
+                GorillaLocomotion.Player.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+                {
+                    v.enabled = false;
+                }
+            }
+            else
+            {
+                foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+                {
+                    v.enabled = true;
+                }
+            }
+        }
+        public static void NoclipTriggerFly()
+        {
+            if (rightTrigger > 0.5f)
+            {
+                GorillaLocomotion.Player.Instance.transform.position += GorillaLocomotion.Player.Instance.headCollider.transform.forward * Time.deltaTime * flySpeed;
+                GorillaLocomotion.Player.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+                {
+                    v.enabled = false;
+                }
+            }
+            else
+            {
+                foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+                {
+                    v.enabled = true;
+                }
+            }
+        }
+        public static void Noclip()
+        {
+            foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+            {
+                v.enabled = false;
+            }
+        }
+        public static void DisableNoclip()
+        {
+            foreach (MeshCollider v in Resources.FindObjectsOfTypeAll<MeshCollider>())
+            {
+                v.enabled = true;
+            }
+        }
+        public static void TeleportGun()
+        {
+            RaycastHit PointerPos;
+            GameObject Pointer;
+            GameObject line = new GameObject("Line");
+            LineRenderer PointerLine = line.AddComponent<LineRenderer>();
+            Physics.Raycast(GorillaLocomotion.Player.Instance.rightControllerTransform.position, GorillaLocomotion.Player.Instance.rightControllerTransform.forward, out PointerPos);
+            if (ControllerInputPoller.instance.rightGrab)
+            {
+                Pointer = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                Pointer.transform.position = PointerPos.point;
+                Pointer.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                Destroy(Pointer.GetComponent<Collider>());
+                Destroy(Pointer.GetComponent<Rigidbody>());
+                Pointer.GetComponent<Renderer>().material.shader = Shader.Find("GorillaTag/UberShader");
+                Destroy(Pointer, Time.deltaTime);
+
+                PointerLine.startWidth = 0.025f; PointerLine.endWidth = 0.025f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
+                PointerLine.SetPosition(0, GorillaLocomotion.Player.Instance.rightControllerTransform.position);
+                PointerLine.SetPosition(1, Pointer.transform.localPosition);
+                PointerLine.material.shader = Shader.Find("GUI/Text Shader");
+                Destroy(line, Time.deltaTime);
+
+                GorillaTagger.Instance.offlineVRRig.transform.position = Pointer.transform.position - new Vector3(-0.1f, -1f, 0f);
             }
         }
     }
