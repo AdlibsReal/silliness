@@ -13,25 +13,25 @@ namespace silliness.Mods
         public static void EnterSettings()
         {
             pageName = "settings ";
-            buttonsType = 1;
+            buttonsType = 2;
         }
 
         public static void MenuSettings()
         {
             pageName = "menu settings ";
-            buttonsType = 2;
+            buttonsType = 3;
         }
 
         public static void MovementSettings()
         {
             pageName = "movement settings ";
-            buttonsType = 3;
+            buttonsType = 4;
         }
 
         public static void ProjectileSettings()
         {
             pageName = "projectile settings ";
-            buttonsType = 4;
+            buttonsType = 5;
         }
 
         public static void RightHand()
@@ -118,6 +118,7 @@ namespace silliness.Mods
             }
             File.WriteAllText("silliness/enabledmods.txt", text);
             File.WriteAllText("silliness/theme.txt", themeNumber.ToString());
+            File.WriteAllText("silliness/pagebutton.txt", pageButtonType.ToString());
         }
         public static void LoadPreferences()
         {
@@ -135,9 +136,12 @@ namespace silliness.Mods
                 }
                 catch { }
                 string themer = File.ReadAllText("silliness/theme.txt");
+                string pager = File.ReadAllText("silliness/pagebutton.txt");
 
                 themeNumber = int.Parse(themer) - 1;
                 Toggle("change theme [pink]");
+                pageButtonType = int.Parse(pager) - 1;
+                Toggle("change page type");
             }
         }
         public static void TurnOffAllMods()

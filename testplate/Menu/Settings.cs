@@ -29,10 +29,10 @@ namespace silliness.Menu
         public static bool middleHanded = false;
         public static bool disableNotifications = false;
         public static bool outlines = false;
+        public static bool thinMenu = false;
+        public static bool instantDestroyMenu = false;
 
-        public static KeyCode keyboardButton = KeyCode.Q;
-
-        public static Vector3 menuSize = new Vector3(0.1f, 1f, 1.05f); // Depth, Width, Height
+        public static KeyCode keyboardButton = KeyCode.Q; // Depth, Width, Height
         public static int buttonsPerPage = 11;
     }
 }

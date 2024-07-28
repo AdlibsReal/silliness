@@ -57,11 +57,19 @@ namespace silliness.Mods
                 Pointer.GetComponent<Renderer>().material.shader = Shader.Find("GorillaTag/UberShader");
                 Destroy(Pointer, Time.deltaTime);
 
+                ColorChanger colorChanger = Pointer.AddComponent<ColorChanger>();
+                colorChanger.colorInfo = backgroundColor;
+                colorChanger.Start();
+
                 PointerLine.startWidth = 0.025f; PointerLine.endWidth = 0.025f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
                 PointerLine.SetPosition(0, GorillaLocomotion.Player.Instance.rightControllerTransform.position);
                 PointerLine.SetPosition(1, Pointer.transform.localPosition);
                 PointerLine.material.shader = Shader.Find("GUI/Text Shader");
                 Destroy(line, Time.deltaTime);
+
+                colorChanger = PointerLine.AddComponent<ColorChanger>();
+                colorChanger.colorInfo = backgroundColor;
+                colorChanger.Start();
 
                 GorillaTagger.Instance.offlineVRRig.enabled = false;
                 GorillaTagger.Instance.offlineVRRig.transform.position = Pointer.transform.position - new Vector3(-0.1f, -1f, 0f);
@@ -73,42 +81,15 @@ namespace silliness.Mods
         }
         public static void HeadSpinZAxis()
         {
-            if (ControllerInputPoller.instance.rightGrab)
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.z = head.trackingRotationOffset.z + 10f;
-            }
-            else
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.z = 0f;
-            }
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.z += 10f;
         }
         public static void HeadSpinXAxis()
         {
-            if (ControllerInputPoller.instance.rightGrab)
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.x = head.trackingRotationOffset.x + 10f;
-            }
-            else
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.x = 0f;
-            }
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.x += 10f;
         }
         public static void HeadSpinYAxis()
         {
-            if (ControllerInputPoller.instance.rightGrab)
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.y = head.trackingRotationOffset.y + 10f;
-            }
-            else
-            {
-                VRMap head = GorillaTagger.Instance.offlineVRRig.head;
-                head.trackingRotationOffset.y = 0f;
-            }
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.y += 10f;
         }
         public static Vector3 stupid1 = Vector3.zero;
         public static Vector3 stupid2 = Vector3.zero;
@@ -128,9 +109,6 @@ namespace silliness.Mods
             }
             else
             {
-                stupid1 = GorillaTagger.Instance.offlineVRRig.leftHand.trackingPositionOffset = new Vector3(spaz, 0f);
-                stupid2 = GorillaTagger.Instance.offlineVRRig.rightHand.trackingPositionOffset = new Vector3(spaz, 0f);
-                stupid3 = GorillaTagger.Instance.offlineVRRig.head.trackingPositionOffset = new Vector3(spaz, 0f);
                 GorillaTagger.Instance.offlineVRRig.leftHand.trackingPositionOffset = stupid1;
                 GorillaTagger.Instance.offlineVRRig.rightHand.trackingPositionOffset = stupid2;
                 GorillaTagger.Instance.offlineVRRig.head.trackingPositionOffset = stupid3;
@@ -155,7 +133,13 @@ namespace silliness.Mods
                 GorillaTagger.Instance.offlineVRRig.rightHand.trackingPositionOffset = stupid2;
             }
         }
-        public static void InvisibleMonke()
+        public static void SpazHead()
+        {
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.x = UnityEngine.Random.Range(0f, 360f);
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.y = UnityEngine.Random.Range(0f, 360f);
+            GorillaTagger.Instance.offlineVRRig.head.trackingRotationOffset.z = UnityEngine.Random.Range(0f, 360f);
+        }
+        public static void FreezeRig()
         {
             if (ControllerInputPoller.instance.rightGrab)
             {

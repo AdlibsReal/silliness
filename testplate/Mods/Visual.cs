@@ -77,7 +77,7 @@ namespace silliness.Mods
                 {
                         GameObject line = new GameObject("Line");
                         LineRenderer PointerLine = line.AddComponent<LineRenderer>();
-                        PointerLine.startWidth = 0.025f; PointerLine.endWidth = 0.025f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
+                        PointerLine.startWidth = 0.015f; PointerLine.endWidth = 0.015f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
                         PointerLine.SetPosition(0, GorillaTagger.Instance.rightHandTransform.position);
                         PointerLine.SetPosition(1, stupid.transform.position);
                         PointerLine.material.shader = Shader.Find("GUI/Text Shader");

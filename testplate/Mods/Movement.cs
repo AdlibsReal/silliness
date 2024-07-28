@@ -215,8 +215,18 @@ namespace silliness.Mods
         }
         public static void Speedboost()
         {
-            GorillaLocomotion.Player.Instance.jumpMultiplier = 15;
-            GorillaLocomotion.Player.Instance.maxJumpSpeed = 15;
+            GorillaLocomotion.Player.Instance.jumpMultiplier = 15f;
+            GorillaLocomotion.Player.Instance.maxJumpSpeed = 15f;
+        }
+        public static void NormalSpeedboost()
+        {
+            GorillaLocomotion.Player.Instance.jumpMultiplier = 9f;
+            GorillaLocomotion.Player.Instance.maxJumpSpeed = 9f;
+        }
+        public static void MosaSpeedboost()
+        {
+            GorillaLocomotion.Player.Instance.jumpMultiplier = 7f;
+            GorillaLocomotion.Player.Instance.maxJumpSpeed = 7f;
         }
         public static void ZeroGravity()
         {
@@ -327,30 +337,21 @@ namespace silliness.Mods
                 v.enabled = true;
             }
         }
-        public static void TeleportGun()
+        public static void WallWalk()
         {
-            RaycastHit PointerPos;
-            GameObject Pointer;
-            GameObject line = new GameObject("Line");
-            LineRenderer PointerLine = line.AddComponent<LineRenderer>();
-            Physics.Raycast(GorillaLocomotion.Player.Instance.rightControllerTransform.position, GorillaLocomotion.Player.Instance.rightControllerTransform.forward, out PointerPos);
-            if (ControllerInputPoller.instance.rightGrab)
+            if (GorillaLocomotion.Player.Instance.wasLeftHandTouching || GorillaLocomotion.Player.Instance.wasRightHandTouching)
             {
-                Pointer = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                Pointer.transform.position = PointerPos.point;
-                Pointer.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-                Destroy(Pointer.GetComponent<Collider>());
-                Destroy(Pointer.GetComponent<Rigidbody>());
-                Pointer.GetComponent<Renderer>().material.shader = Shader.Find("GorillaTag/UberShader");
-                Destroy(Pointer, Time.deltaTime);
+                FieldInfo fieldInfo = typeof(GorillaLocomotion.Player).GetField("lastHitInfoHand", BindingFlags.NonPublic | BindingFlags.Instance);
+                RaycastHit ray = (RaycastHit)fieldInfo.GetValue(GorillaLocomotion.Player.Instance);
+                walkPos = ray.point;
+                walkNormal = ray.normal;
+            }
 
-                PointerLine.startWidth = 0.025f; PointerLine.endWidth = 0.025f; PointerLine.positionCount = 2; PointerLine.useWorldSpace = true;
-                PointerLine.SetPosition(0, GorillaLocomotion.Player.Instance.rightControllerTransform.position);
-                PointerLine.SetPosition(1, Pointer.transform.localPosition);
-                PointerLine.material.shader = Shader.Find("GUI/Text Shader");
-                Destroy(line, Time.deltaTime);
-
-                GorillaTagger.Instance.offlineVRRig.transform.position = Pointer.transform.position - new Vector3(-0.1f, -1f, 0f);
+            if (walkPos != Vector3.zero && rightGrab)
+            {
+                //GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.AddForce(walkNormal * -10, ForceMode.Acceleration);
+                GorillaLocomotion.Player.Instance.bodyCollider.attachedRigidbody.AddForce(walkNormal * -9.81f, ForceMode.Acceleration);
+                ZeroGravity();
             }
         }
     }

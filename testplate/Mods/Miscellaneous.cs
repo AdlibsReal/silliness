@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using ExitGames.Client.Photon;
+using GorillaNetworking;
 using GorillaTag.GuidedRefs;
 using Photon.Pun;
 using Photon.Realtime;
@@ -34,25 +35,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 32;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -61,25 +80,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 204;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -88,25 +125,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 231;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -115,25 +170,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 240;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -142,25 +215,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 249;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -169,25 +260,43 @@ namespace silliness.Mods
             bool thing = rightGrab;
             if (thing && !lastthing)
             {
+                ControllerInputPoller.instance.rightControllerGripFloat = 1f;
                 GameObject lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(lhelp, 0.1f);
-                lhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                lhelp.transform.position = TrueRightHand().position;
-                lhelp.transform.rotation = TrueRightHand().rotation;
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
                 lhelp.GetComponent<Renderer>().enabled = false;
+
+                lhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(lhelp, 0.1f);
+                lhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                lhelp.transform.position = GorillaTagger.Instance.rightHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                lhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
+                lhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.rightHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing = thing;
             bool thing2 = leftGrab;
             if (thing2 && !lastthing2)
             {
+                ControllerInputPoller.instance.leftControllerGripFloat = 1f;
                 GameObject rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Destroy(rhelp, 0.1f);
-                rhelp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                rhelp.transform.position = TrueLeftHand().position;
-                rhelp.transform.rotation = TrueLeftHand().rotation;
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position + new Vector3(0f, 0.1f, 0f);
                 rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
                 rhelp.GetComponent<Renderer>().enabled = false;
+
+                rhelp = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                UnityEngine.Object.Destroy(rhelp, 0.1f);
+                rhelp.transform.localScale = new Vector3(0.25f, 0.05f, 0.25f);
+                rhelp.transform.position = GorillaTagger.Instance.leftHandTransform.position - new Vector3(0f, 0.1f, 0f);
+                rhelp.AddComponent<GorillaSurfaceOverride>().overrideIndex = 252;
+                rhelp.GetComponent<Renderer>().enabled = false;
+
+                GorillaTagger.Instance.leftHandTransform.position += new Vector3(0f, 0.1f, 0f);
             }
             lastthing2 = thing2;
         }
@@ -215,7 +324,11 @@ namespace silliness.Mods
         {
             GorillaTagger.Instance.tapCoolDown = 0.33f;
         }
-        public static void BringMonsters()
+        public static void jointheroom()
+        {
+            PhotonNetworkController.Instance.AttemptToJoinSpecificRoom("<$II_4.3.0>", JoinType.Solo);
+        }//<$II_4.2.0>
+        public static void SolidPlayers()
         {
 
         }
